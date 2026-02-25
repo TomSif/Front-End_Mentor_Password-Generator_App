@@ -28,6 +28,36 @@
   --color-grey-950: #08070b;
 }
 
+/* Typography COLLECTION */
+@utility text-preset-1 {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 2.625rem;
+  letter-spacing: 0;
+}
+@utility text-preset-2 {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: 0;
+}
+@utility text-preset-3 {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  letter-spacing: 0;
+}
+@utility text-preset-4 {
+  font-family: var(--font-mono);
+  font-weight: 800;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  letter-spacing: 0;
+}
+
 :root {
   font-synthesis: none;
   text-rendering: optimizeLegibility;
