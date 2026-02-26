@@ -69,3 +69,92 @@ body {
   background-color: var(--color-grey-950);
   font-family: var(--font-mono);
 }
+
+/* Styles généraux pour le slider */
+input[type="range"] {
+  appearance: none;
+  -webkit-appearance: none; /* Supprime les styles par défaut de Webkit */
+  width: 100%; /* Largeur du slider */
+  height: 8px; /* Hauteur de la barre (track) */
+  background: transparent; /* Masque la barre par défaut pour pouvoir la styliser */
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+/* Styles pour le track (barre) */
+/* Webkit (Chrome, Safari, Edge) */
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(
+    to right,
+    var(--color-green-200) var(--fill),
+    var(--color-grey-850) var(--fill)
+  ); /* Couleur de la barre */
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Mozilla (Firefox) */
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Microsoft (IE, Edge Legacy) */
+input[type="range"]::-ms-track {
+  width: 100%;
+  height: 8px;
+  background: transparent; /* Cache le track par défaut pour styliser les fill-lower/upper */
+  border-color: transparent;
+  color: transparent;
+}
+input[type="range"]::-ms-fill-lower,
+input[type="range"]::-ms-fill-upper {
+  background: #ddd;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+input[type="range"]::-ms-fill-lower {
+  background: #007bff; /* Couleur différente pour la partie "remplie" */
+}
+
+/* Styles pour le thumb (curseur) */
+/* Webkit (Chrome, Safari, Edge) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Supprime les styles par défaut de Webkit */
+  height: 20px;
+  width: 20px;
+  border-radius: 50%; /* Forme ronde */
+  background: var(--color-grey-200); /* Couleur du thumb */
+  cursor: grab;
+  margin-top: -6px; /* Ajuste la position verticale pour le centrer sur le track */
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  border: none;
+}
+
+/* Mozilla (Firefox) */
+input[type="range"]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--color-grey-200); /* Couleur du thumb */
+  cursor: grab;
+  border: none;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Microsoft (IE, Edge Legacy) */
+input[type="range"]::-ms-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background: var(--color-grey-200); /* Couleur du thumb */
+  cursor: grab;
+  border: none;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  margin-top: 0; /* Pas besoin de margin-top pour IE */
+}
