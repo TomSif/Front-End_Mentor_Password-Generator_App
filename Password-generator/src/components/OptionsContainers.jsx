@@ -10,7 +10,10 @@ function OptionsContainer({ options, setOptions }) {
         options={options}
         setOptions={setOptions}
       ></CharacterLengthContainer>
-      <CheckBoxOptionsContainer></CheckBoxOptionsContainer>
+      <CheckBoxOptionsContainer
+        options={options}
+        setOptions={setOptions}
+      ></CheckBoxOptionsContainer>
       <StrengthContainer></StrengthContainer>
       <ButtonGenerate></ButtonGenerate>
     </section>
