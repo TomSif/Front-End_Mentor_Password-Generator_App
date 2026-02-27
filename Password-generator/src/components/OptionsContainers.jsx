@@ -14,7 +14,7 @@ function OptionsContainer({ options, setOptions }) {
         options={options}
         setOptions={setOptions}
       ></CheckBoxOptionsContainer>
-      <StrengthContainer></StrengthContainer>
+      <StrengthContainer options={options}></StrengthContainer>
       <ButtonGenerate></ButtonGenerate>
     </section>
   );
