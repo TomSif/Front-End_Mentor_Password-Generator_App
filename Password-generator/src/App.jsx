@@ -4,12 +4,21 @@ import PasswordContainer from "./components/PasswordContainer";
 import OptionsContainer from "./components/OptionsContainers";
 
 function App() {
-  const [length, setLength] = useState(0);
+  const [options, setOptions] = useState({
+    length: 0,
+    includeUppercase: false,
+    includeLowercase: false,
+    includeNumbers: false,
+    includeSymbols: false,
+  });
 
   return (
     <main className="flex flex-col items-center">
       <PasswordContainer></PasswordContainer>
-      <OptionsContainer length={length} onChange={setLength}></OptionsContainer>
+      <OptionsContainer
+        options={options}
+        setOptions={setOptions}
+      ></OptionsContainer>
     </main>
   );
 }

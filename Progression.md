@@ -1,3 +1,51 @@
+## Session 2026-02-26 — CharacterLengthContainer + Props drilling + Slider CSS
+
+### ✅ Étapes accomplies
+- `CharacterLengthContainer` structuré : label, valeur affichée, `<input type="range">` contrôlé
+- `useState(length)` initialement local puis **lifté vers `App`** (lift state up)
+- Props drilling implémenté : `App` → `OptionsContainer` → `CharacterLengthContainer`
+- Slider CSS custom cross-browser : `appearance: none`, thumb stylisé, track gradient dynamique
+- Gradient de progression via CSS custom property `--fill` passée par `style` prop React
+- `fillPercent` calculé comme valeur dérivée (`const`, pas `useState`)
+- `MIN`/`MAX` extraits en constantes pour éviter la duplication
+
+### 🧠 Notions de code vues
+| Notion | Statut | Commentaire |
+|--------|--------|-------------|
+| Lift state up — parent commun | Faussement acquise | A d'abord désigné `CheckBoxOptionsContainer` (frère) puis `OptionsContainer` (pas assez haut) avant d'identifier `App` |
+| Props destructuring `{ prop1, prop2 }` | Faussement acquise | A écrit `function Comp(prop1, prop2)` et `function Comp()` — syntaxe objet pas encore réflexe |
+| Appel de fonction via prop : `onChange(val)` | Faussement acquise | Syntaxe `{onChange}(val)` utilisée — confusion expression/appel |
+| Variable JS hors composant | Faussement acquise | `fillPercent` déclarée en dehors du composant (assignation hors render) |
+| `const` pour valeur dérivée (pas `useState`) | Révisée | Compris une fois la distinction posée |
+| CSS custom property via `style` prop React | Nouvelle | `style={{ "--fill": \`${fillPercent}%\` }}` — technique retenue |
+| `linear-gradient` hard stop (même position) | Nouvelle | Syntaxe écrite seule une fois le principe expliqué |
+| `appearance: none` sur l'input range | Nouvelle | Nécessaire pour activer les pseudo-éléments custom |
+
+### ⚠️ Notions faussement acquises détectées
+- **Props destructuring** : réflexe non ancré — 3 variantes incorrectes avant la bonne syntaxe
+- **Lift state up** : logique comprise conceptuellement mais identification du bon niveau nécessite guidage
+- **Scope des variables JS dans un composant** : variable déclarée hors du corps de la fonction
+
+### 🔄 Étapes restantes
+- `MAX = 10` confirmé par la maquette — valeur correcte
+- `CheckBoxOptionsContainer` — 4 checkboxes avec état dans `App`
+- `StrengthContainer` — indicateur de force (barres)
+- `ButtonGenerate` — bouton de génération
+- Logique de génération de mot de passe (fonction pure)
+- Clipboard API (`navigator.clipboard`)
+- Responsive layout + états hover/focus
+
+### 📈 Évaluation de session
+- **Points solides :** gradient hard stop écrit seul après explication du principe, `fillPercent` calcul correct, structure slider HTML complète
+- **Points fragiles :** props destructuring (erreur répétée sur 3 variantes), identification du parent commun pour le state, scope des variables JS en contexte composant
+- **Priorité pour la prochaine session :** `CheckBoxOptionsContainer` — consolider props drilling sur un nouveau composant + introduire état objet pour les options
+
+### 💬 Notes de contexte
+- `MAX = 10` confirmé par la maquette (pas 20 comme supposé initialement)
+- Le slider Firefox utilise encore `#ddd` pour la track — pas encore unifié avec les tokens du projet
+
+---
+
 ## Session 2026-02-25 (après-midi) — Scaffold composants + PasswordContainer
 
 ### ✅ Étapes accomplies
