@@ -12,12 +12,15 @@ function App() {
     includeSymbols: false,
   });
 
+  const [password, setPassword] = useState(null);
+
   return (
     <main className="flex flex-col items-center">
-      <PasswordContainer></PasswordContainer>
+      <PasswordContainer password={password}></PasswordContainer>
       <OptionsContainer
         options={options}
         setOptions={setOptions}
+        setPassword={setPassword}
       ></OptionsContainer>
     </main>
   );

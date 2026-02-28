@@ -1,3 +1,45 @@
+## Session 2026-02-27 — State objet, CheckBoxOptionsContainer, StrengthContainer
+
+### ✅ Étapes accomplies
+- Refactor state : `length` → objet `options` centralisé dans `App` (`length` + 4 booléens `include*`)
+- `CharacterLengthContainer` adapté : `options.length` à la place de `length`, spread conservé
+- `CheckBoxOptionsContainer` : 4 checkboxes contrôlées, `fieldset` + `label` wrapping, props drilling correct
+- `StrengthContainer` : fonction `getStrength` avec formule multiplicative (`length × somme des types`), tableau `barColors` indexé, `.map()` sur `[1,2,3,4]` pour les barres
+- Props `options` passé à `StrengthContainer` via `OptionsContainer`
+
+### 🧠 Notions de code vues
+| Notion | Statut | Commentaire |
+|--------|--------|-------------|
+| `useState` objet — spread pour update partiel | Consolidée | Adapté sans aide sur 3 occurrences dans `CharacterLengthContainer` |
+| Props drilling avec objet unique | Consolidée | Un seul prop `options` au lieu de 5 — logique comprise et appliquée |
+| `Number(booléen)` → 0 ou 1 | Nouvelle | Utilisé pour additionner des booléens dans le scoring |
+| `.map()` sur tableau littéral `[1,2,3,4]` | Nouvelle | Pour générer les 4 barres de force sans répétition |
+| `fieldset` pour grouper des inputs | Nouvelle | Choix intuitif, sémantiquement correct (meilleur que `div` pour l'accessibilité) |
+| `gray` (Tailwind default) vs `grey` (token custom) | Faussement acquise | Erreur répétée — 3e occurrence en 3 sessions |
+| Valeur dérivée calculée dans le composant | Consolidée | `strength` et `label` calculés dans `StrengthContainer` sans `useState` |
+
+### ⚠️ Notions faussement acquises détectées
+- **`gray` vs `grey`** : erreur répétée pour la 3e fois (`text-gray-200` au lieu de `text-grey-200`). La règle est connue verbalement mais pas ancrée en pratique.
+
+### 🔄 Étapes restantes
+- `ButtonGenerate` — bouton de génération + logique de génération de mot de passe (fonction pure)
+- `PasswordContainer` — affichage du mot de passe généré (state à remonter ou passer via prop)
+- Clipboard API (`navigator.clipboard`)
+- Responsive layout + états hover/focus
+- CSS custom : checkbox styling, couleurs maquette exactes
+
+### 📈 Évaluation de session
+- **Points solides :** spread sur objet state sans aide, props drilling avec objet unique compris et appliqué, `Number(bool)` utilisé spontanément, `.map()` sur tableau littéral
+- **Points fragiles :** `gray` vs `grey` — erreur répétée en pratique malgré connaissance verbale
+- **Priorité pour la prochaine session :** `ButtonGenerate` + logique de génération de mot de passe — première fonction pure JS à écrire
+
+### 💬 Notes de contexte
+- Formule scoring : `length × (nb de types cochés)` — seuils 10/20/30 pour 4 niveaux (max théorique 40)
+- `StrengthContainer` ne reçoit que `options` en lecture — pas de `setOptions`
+- Le commentaire inline dans `StrengthContainer` (ligne 39) est à nettoyer avant la fin du projet
+
+---
+
 ## Session 2026-02-26 — CharacterLengthContainer + Props drilling + Slider CSS
 
 ### ✅ Étapes accomplies
