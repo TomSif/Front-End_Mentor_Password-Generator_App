@@ -10,8 +10,8 @@ function StrengthContainer({ options }) {
     let strength = 0;
     if (score > 0) strength = 1;
     if (score > 20) strength = 2;
-    if (score > 40) strength = 3;
-    if (score > 60) strength = 4;
+    if (score > 30) strength = 3;
+    if (score > 50) strength = 4;
 
     const labels = ["", "TOO WEAK", "WEAK", "MEDIUM", "STRONG"];
 

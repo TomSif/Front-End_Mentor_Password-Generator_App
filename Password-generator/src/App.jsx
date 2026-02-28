@@ -1,4 +1,3 @@
-import "./App.css";
 import { useState } from "react";
 import PasswordContainer from "./components/PasswordContainer";
 import OptionsContainer from "./components/OptionsContainers";
