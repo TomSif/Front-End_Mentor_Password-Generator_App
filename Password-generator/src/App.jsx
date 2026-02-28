@@ -15,7 +15,7 @@ function App() {
   const [password, setPassword] = useState(null);
 
   return (
-    <main className="flex flex-col items-center">
+    <main className="flex flex-col items-center justify-center mt-16 md:mt-33">
       <PasswordContainer password={password}></PasswordContainer>
       <OptionsContainer
         options={options}

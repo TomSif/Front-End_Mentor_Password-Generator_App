@@ -12,7 +12,7 @@ const generatePassword = (options) => {
   if (options.includeNumbers) pool += numbers;
   if (options.includeSymbols) pool += symbols;
 
-  if (pool === "") return ""; // aucune option cochée
+  if (pool === "") return null; // aucune option cochée
 
   let password = "";
   for (let i = 0; i < options.length; i++) {

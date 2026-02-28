@@ -1,6 +1,6 @@
 function CharacterLengthContainer({ options, setOptions }) {
-  const MIN = 0;
-  const MAX = 10;
+  const MIN = 1;
+  const MAX = 20;
   const fillPercent = ((options.length - MIN) / (MAX - MIN)) * 100;
 
   return (
