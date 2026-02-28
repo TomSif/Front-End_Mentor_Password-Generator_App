@@ -12,7 +12,15 @@ function App() {
     includeSymbols: false,
   });
 
-  const [password, setPassword] = useState(null);
+  const hasError =
+    options.length === 0 ||
+    (!options.includeUppercase &&
+      !options.includeLowercase &&
+      !options.includeNumbers &&
+      !options.includeSymbols);
+
+  const [password, setPassword] = useState("");
+  const [showError, setShowError] = useState(false);
 
   return (
     <main className="flex flex-col items-center justify-center mt-16 md:mt-33">
@@ -21,6 +29,9 @@ function App() {
         options={options}
         setOptions={setOptions}
         setPassword={setPassword}
+        hasError={hasError}
+        setShowError={setShowError}
+        showError={showError}
       ></OptionsContainer>
     </main>
   );

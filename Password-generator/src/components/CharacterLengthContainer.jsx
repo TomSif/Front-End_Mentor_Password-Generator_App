@@ -1,5 +1,5 @@
-function CharacterLengthContainer({ options, setOptions }) {
-  const MIN = 1;
+function CharacterLengthContainer({ options, setOptions, setShowError }) {
+  const MIN = 0;
   const MAX = 20;
   const fillPercent = ((options.length - MIN) / (MAX - MIN)) * 100;
 
@@ -16,9 +16,10 @@ function CharacterLengthContainer({ options, setOptions }) {
           max={MAX}
           step={1}
           value={options.length}
-          onChange={(e) =>
-            setOptions({ ...options, length: Number(e.target.value) })
-          }
+          onChange={(e) => {
+            setOptions({ ...options, length: Number(e.target.value) });
+            setShowError(false);
+          }}
           className="w-full  cursor-pointer"
           style={{ "--fill": `${fillPercent}%` }}
         />

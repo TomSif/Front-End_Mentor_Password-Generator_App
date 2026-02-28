@@ -15,7 +15,7 @@ function PasswordContainer({ password }) {
       <div className="flex justify-between bg-grey-800  text-grey-700  px-4 py-4 md:py-8 text-preset-2 w-full max-w-77 md:max-w-119 mt-4 md:mt-8">
         <p className="text-preset-2 text-grey-200">
           {" "}
-          {password === null ? (
+          {password === "" ? (
             <span className="text-grey-700">P4$5W0rD!</span>
           ) : (
             password

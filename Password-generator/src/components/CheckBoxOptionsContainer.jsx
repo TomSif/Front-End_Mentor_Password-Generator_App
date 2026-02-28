@@ -1,4 +1,4 @@
-function CheckBoxOptionsContainer({ options, setOptions }) {
+function CheckBoxOptionsContainer({ options, setOptions, setShowError }) {
   return (
     <fieldset className="flex flex-col gap-4 mt-8  w-full max-w-77.75 md:max-w-119">
       <label className="flex items-center gap-4 cursor-pointer text-preset-4 md:text-preset-3 text-grey-200">
@@ -8,9 +8,10 @@ function CheckBoxOptionsContainer({ options, setOptions }) {
           name="includeUppercase"
           id="includeUppercase"
           checked={options.includeUppercase}
-          onChange={(e) =>
-            setOptions({ ...options, includeUppercase: e.target.checked })
-          }
+          onChange={(e) => {
+            setOptions({ ...options, includeUppercase: e.target.checked });
+            setShowError(false);
+          }}
         />
         Include Uppercase Letters
       </label>
@@ -21,9 +22,10 @@ function CheckBoxOptionsContainer({ options, setOptions }) {
           name="includeLowercase"
           id="includeLowercase"
           checked={options.includeLowercase}
-          onChange={(e) =>
-            setOptions({ ...options, includeLowercase: e.target.checked })
-          }
+          onChange={(e) => {
+            setOptions({ ...options, includeLowercase: e.target.checked });
+            setShowError(false);
+          }}
         />
         Include Lowercase Letters
       </label>
@@ -34,9 +36,10 @@ function CheckBoxOptionsContainer({ options, setOptions }) {
           name="includeNumbers"
           id="includeNumbers"
           checked={options.includeNumbers}
-          onChange={(e) =>
-            setOptions({ ...options, includeNumbers: e.target.checked })
-          }
+          onChange={(e) => {
+            setOptions({ ...options, includeNumbers: e.target.checked });
+            setShowError(false);
+          }}
         />
         Include Numbers
       </label>
@@ -47,9 +50,10 @@ function CheckBoxOptionsContainer({ options, setOptions }) {
           name="includeSymbols"
           id="includeSymbols"
           checked={options.includeSymbols}
-          onChange={(e) =>
-            setOptions({ ...options, includeSymbols: e.target.checked })
-          }
+          onChange={(e) => {
+            setOptions({ ...options, includeSymbols: e.target.checked });
+            setShowError(false);
+          }}
         />
         Include Symbols
       </label>
