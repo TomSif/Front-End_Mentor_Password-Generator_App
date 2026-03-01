@@ -24,7 +24,6 @@ function CharacterLengthContainer({ options, setOptions, setShowError }) {
         <input
           type="range"
           aria-labelledby="characterLengthTitle"
-          aria-describedby="characterLength"
           min={MIN}
           max={MAX}
           step={1}
