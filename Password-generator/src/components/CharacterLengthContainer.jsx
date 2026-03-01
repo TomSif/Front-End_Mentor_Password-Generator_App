@@ -6,12 +6,15 @@ function CharacterLengthContainer({ options, setOptions, setShowError }) {
   return (
     <div className="py-1 w-full max-w-77.75 md:max-w-119">
       <div className="flex justify-between py-2">
-        <h2 className="preset-4 md:preset-3 text-white">Character Length</h2>
+        <h2 className="preset-4 md:preset-3 text-white" id="characterLength">
+          Character Length
+        </h2>
         <p className="preset-2 md:preset-1 text-green-200">{options.length}</p>
       </div>
       <div className="mt-2 md:mt-4">
         <input
           type="range"
+          aria-labelledby="characterLength"
           min={MIN}
           max={MAX}
           step={1}

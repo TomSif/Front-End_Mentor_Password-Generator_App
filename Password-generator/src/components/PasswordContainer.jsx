@@ -36,6 +36,7 @@ function PasswordContainer({ password }) {
             transition-all
             duration-300"
             onClick={handleCopy}
+            aria-label="Copy Button"
           >
             <svg width="21" height="24" xmlns="http://www.w3.org/2000/svg">
               <path

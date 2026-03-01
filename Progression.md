@@ -1,3 +1,49 @@
+## Session 2026-02-28 — generatePassword, Clipboard API, gestion d'erreurs, finition CSS
+
+### ✅ Étapes accomplies
+- `utils/generatePassword.js` — fonction pure : pool de caractères, boucle `for`, `Math.floor(Math.random() * pool.length)`, retourne `""` si pool vide
+- `ButtonGenerate` — handler `handleGenerate` avec guard clause (`hasError` → `setShowError` + early return), hover/active CSS
+- `PasswordContainer` — `useState(false)` pour `copied`, `handleCopy` async/await, `setTimeout` pour reset, placeholder conditionnel `password === ""`
+- Clipboard API — `navigator.clipboard.writeText()` avec `async/await`
+- `App` — `hasError` valeur dérivée (length === 0 OU aucune option cochée), `showError` state, propagation via props
+- `OptionsContainer` — messages d'erreur contextuels différenciés selon le type d'erreur
+- `StrengthContainer` — seuils ajustés (`> 0 / > 20 / > 30 / > 50`), couleurs tokens custom (`green-200`, `yellow-300`)
+- Projet fonctionnellement complet et conforme à la maquette
+
+### 🧠 Notions de code vues
+| Notion | Statut | Commentaire |
+|--------|--------|-------------|
+| Fonction pure dans `utils/` — séparation des responsabilités | Consolidée | Placé spontanément dans `utils/`, logique complète écrite sans aide |
+| `Math.floor(Math.random() * pool.length)` | Nouvelle | Logique expliquée, implémentée correctement |
+| `onClick={fn()}` vs `onClick={() => fn()}` | Faussement acquise | Erreur répétée (3e occurrence) — corrigée seul cette fois après debug |
+| `async/await` sur une Promise | Nouvelle | Expliqué avec exemple neutre, adapté sans aide |
+| `navigator.clipboard.writeText()` | Nouvelle | `await` sans stockage du résultat compris |
+| `useState` pour feedback UI temporaire (`copied`, `showError`) | Nouvelle | Pattern `setTimeout` + reset appliqué deux fois de suite |
+| Valeur dérivée pour validation (`hasError`) | Nouvelle | Calculée dans `App` sans `useState` — bonne décision architecturale |
+| Guard clause avec early `return` | Nouvelle | Appliqué spontanément dans `handleGenerate` |
+| Messages d'erreur contextuels (ternaire sur l'état) | Nouvelle | Différenciation `length === 0` vs aucune option cochée |
+
+### ⚠️ Notions faussement acquises détectées
+- **`onClick={fn()}` vs `onClick={() => fn()}`** : 3e occurrence en 3 sessions. Corrigée en autonomie cette fois — signe que le diagnostic est acquis, mais le réflexe préventif ne l'est pas encore.
+
+### 🔄 Étapes restantes
+- `README.md` mis à jour (description, stack, captures d'écran)
+- Déploiement Vercel + soumission Frontend Mentor
+- Point à vérifier : `absolute bottom-2` dans `OptionsContainer` sans `relative` sur la `<section>` parente — positionnement à confirmer
+
+### 📈 Évaluation de session
+- **Points solides :** fonction pure écrite seule, async/await adapté du premier coup, pattern `showError` + guard clause + messages contextuels — gestion d'erreur robuste faite en autonomie
+- **Points fragiles :** `onClick={fn()}` vs `onClick={() => fn()}` — réflexe préventif pas encore automatique
+- **Priorité pour la prochaine session :** déploiement Vercel + soumission ; ou prochain challenge si fait en autonomie
+
+### 💬 Notes de contexte
+- `hasError` est une valeur dérivée dans `App` (pas un state) — bonne décision : évite une désynchronisation
+- Seuils force : `> 0 / > 20 / > 30 / > 50` — max longueur 20 × 4 types = 80
+- `password` initialisé à `""` (pas `null`) — placeholder conditionnel sur `=== ""`
+- `OptionsContainer` passe `setShowError` à `CharacterLengthContainer` et `CheckBoxOptionsContainer` en plus de `ButtonGenerate`
+
+---
+
 ## Session 2026-02-27 — State objet, CheckBoxOptionsContainer, StrengthContainer
 
 ### ✅ Étapes accomplies
