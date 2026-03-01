@@ -12,7 +12,11 @@ function CharacterLengthContainer({ options, setOptions, setShowError }) {
         >
           Character Length
         </h2>
-        <p className="preset-2 md:preset-1 text-green-200" id="characterLength">
+        <p
+          className="preset-2 md:preset-1 text-green-200"
+          id="characterLength "
+          aria-live="polite"
+        >
           {options.length}
         </p>
       </div>
