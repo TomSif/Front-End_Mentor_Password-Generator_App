@@ -13,7 +13,6 @@ function ButtonGenerate({ options, setPassword, hasError, setShowError }) {
   return (
     <button
       type="button"
-      aria-label="generation password button"
       className="flex items-center justify-center  text-preset-3 md:text-preset-4 text-center gap-2 md:gap-6 bg-green-200 hover:bg-grey-800 hover:text-green-200 border-green-200 border-2 w-full mt-4 md:mt-8 md:mb-4 py-4 md:py-6 hover:scale-103 active:scale-95 transition-all duration-300 relative"
       onClick={handleGenerate}
     >

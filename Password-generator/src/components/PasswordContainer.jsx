@@ -29,6 +29,7 @@ function PasswordContainer({ password }) {
           )}
           <button
             type="button"
+            title="copy the password"
             className="text-green-200
             hover:text-grey-200
             hover:scale-108
@@ -36,7 +37,7 @@ function PasswordContainer({ password }) {
             transition-all
             duration-300"
             onClick={handleCopy}
-            aria-label="Copy Button"
+            aria-label="Copy the password in clipboard"
           >
             <svg width="21" height="24" xmlns="http://www.w3.org/2000/svg">
               <path

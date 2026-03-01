@@ -1,6 +1,7 @@
 function CheckBoxOptionsContainer({ options, setOptions, setShowError }) {
   return (
     <fieldset className="flex flex-col gap-4 mt-8  w-full max-w-77.75 md:max-w-119">
+      <legend className="sr-only">Password Options</legend>
       <label className="flex items-center gap-4 cursor-pointer text-preset-4 md:text-preset-3 text-grey-200">
         <input
           className="appearance-none w-5 h-5 border-2 border-white checked:bg-green-400"
